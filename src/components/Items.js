@@ -1,23 +1,21 @@
 import React from 'react';
-import config from '../config';
 
 const Items = ({ items }) => (
   <div>
-    <h1>Items</h1>
+    <h1>Photos</h1>
     <div className="items">
       {items.map((item) => (
-        <a
-          key={item.itemId}
-          href={escape(`/items/${item.itemName.replace(/ /g, '_').toLowerCase()}`)}
+        <div
+          key={item._id}
           className="item"
         >
           <img
-            src={`${config.cloudfrontURL}/${item.itemPhotos[0].photoName}`}
-            alt={item.itemName}
+            src={item.image.asset.url}
+            alt={item.title}
             className="item-img"
           />
-          <h3>{item.itemName}</h3>
-        </a>
+          <h3>{item.title}</h3>
+        </div>
       ))}
     </div>
   </div>

@@ -1,9 +1,8 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import CartIcon from './CartIcon';
 
-const NavBar = ({ cart }) => (
+const NavBar = () => (
   <Navbar collapseOnSelect expand="lg">
     <Navbar.Brand href="/">
       <img
@@ -17,10 +16,9 @@ const NavBar = ({ cart }) => (
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="ml-auto" activeKey={window.location.pathname}>
+        <Nav.Link href="/photos">Photos</Nav.Link>
         <Nav.Link href="/about">About</Nav.Link>
-        <Nav.Link href="/items">Items</Nav.Link>
         <Nav.Link href="/contact">Contact</Nav.Link>
-        <Nav.Link href="/cart"><CartIcon cart={cart} /></Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
