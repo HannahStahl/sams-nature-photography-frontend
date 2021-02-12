@@ -31,7 +31,7 @@ const App = withRouter(() => {
     if (galleries.length === 0) {
       const query = `
         query {
-          allPhoto {
+          allPhoto(sort: { _updatedAt: DESC }) {
             _id
             title
             description
@@ -44,7 +44,7 @@ const App = withRouter(() => {
               _id
             }
           }
-          allGallery {
+          allGallery(sort: { name: ASC }) {
             _id
             name
           }
@@ -64,7 +64,7 @@ const App = withRouter(() => {
           setGalleries(allGallery);
         });
     }
-  }, []);
+  }, [galleries]);
 
   return (
     <>
