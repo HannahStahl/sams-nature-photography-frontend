@@ -44,7 +44,7 @@ const App = withRouter(() => {
               _id
             }
           }
-          allGallery(sort: { name: ASC }) {
+          allGallery(sort: { _updatedAt: DESC }) {
             _id
             name
           }
