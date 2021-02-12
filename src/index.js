@@ -6,38 +6,40 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import Home from './components/Home';
 import About from './components/About';
-import Items from './components/Items';
+import Galleries from './components/Galleries';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import config from './config';
 
-const Routes = ({ items }) => (
+const Routes = ({ galleries }) => (
   <Switch>
-    <Route path="/" exact component={Home} />
+    <Route path="/" exact render={() => <Galleries galleries={galleries} />} />
     <Route path="/about" exact component={About} />
-    <Route path="/photos" exact render={() => <Items items={items} />} />
+    <Route path="/photos" exact render={() => <Galleries galleries={galleries} />} />
     <Route path="/contact" exact component={Contact} />
     <Route component={NotFound} />
   </Switch>
 );
 
 const App = withRouter(() => {
-  const [items, setItems] = useState([]);
+  const [galleries, setGalleries] = useState([]);
 
   useEffect(() => {
     const query = `
       query {
-        allPhoto {
+        allGallery {
           _id
-          title
-          description
-          image {
-            asset {
-              url
+          name
+          photos {
+            title
+            description
+            image {
+              asset {
+                url
+              }
             }
           }
         }
@@ -50,16 +52,16 @@ const App = withRouter(() => {
     };
     fetch(config.apiURL, params)
       .then((res) => res.json())
-      .then(({ data: { allPhoto } }) => setItems(allPhoto));
+      .then(({ data: { allGallery } }) => setGalleries(allGallery));
   }, []);
 
   return (
     <>
       <NavBar />
       <div className="page-content">
-        <Routes items={items} />
+        <Routes galleries={galleries} />
       </div>
-      {window.location.pathname !== '/' && <Footer />}
+      <Footer />
     </>
   );
 });

@@ -1,24 +1,24 @@
 import React from 'react';
 
-const Items = ({ items }) => (
+const Gallery = ({ gallery }) => (
   <div>
-    <h1>Photos</h1>
-    <div className="items">
-      {items.map((item) => (
+    <h1>{gallery.name}</h1>
+    <div className="photos">
+      {gallery.photos.map((photo) => (
         <div
-          key={item._id}
-          className="item"
+          key={photo._id}
+          className="photo"
         >
           <img
-            src={item.image.asset.url}
-            alt={item.title}
-            className="item-img"
+            src={photo.image.asset.url}
+            alt={photo.title}
+            className="photo-img"
           />
-          <h3>{item.title}</h3>
+          <h3>{photo.title}</h3>
         </div>
       ))}
     </div>
   </div>
 );
 
-export default Items;
+export default Gallery;
