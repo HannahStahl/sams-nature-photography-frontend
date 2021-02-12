@@ -28,12 +28,11 @@ const App = withRouter(() => {
   const [galleries, setGalleries] = useState([]);
 
   useEffect(() => {
-    const query = `
-      query {
-        allGallery {
-          _id
-          name
-          photos {
+    if (galleries.length === 0) {
+      const query = `
+        query {
+          allPhoto {
+            _id
             title
             description
             image {
@@ -41,18 +40,30 @@ const App = withRouter(() => {
                 url
               }
             }
+            gallery {
+              _id
+            }
+          }
+          allGallery {
+            _id
+            name
           }
         }
-      }
-    `;
-    const params = {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query }),
-    };
-    fetch(config.apiURL, params)
-      .then((res) => res.json())
-      .then(({ data: { allGallery } }) => setGalleries(allGallery));
+      `;
+      const params = {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query }),
+      };
+      fetch(config.apiURL, params)
+        .then((res) => res.json())
+        .then(({ data: { allPhoto, allGallery } }) => {
+          allGallery.forEach((gallery, index) => {
+            allGallery[index].photos = allPhoto.filter((photo) => photo.gallery._id === gallery._id);
+          });
+          setGalleries(allGallery);
+        });
+    }
   }, []);
 
   return (
