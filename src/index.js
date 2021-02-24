@@ -31,22 +31,23 @@ const App = withRouter(() => {
     if (galleries.length === 0) {
       const query = `
         query {
-          allPhoto(sort: { _updatedAt: DESC }) {
+          allGallery(sort: { name: ASC }) {
             _id
-            title
-            description
-            image {
+            name
+            previewPhoto {
               asset {
                 url
               }
             }
-            gallery {
-              _id
+            photos {
+              title
+              description
+              image {
+                asset {
+                  url
+                }
+              }
             }
-          }
-          allGallery(sort: { _updatedAt: DESC }) {
-            _id
-            name
           }
         }
       `;
@@ -57,10 +58,7 @@ const App = withRouter(() => {
       };
       fetch(config.apiURL, params)
         .then((res) => res.json())
-        .then(({ data: { allPhoto, allGallery } }) => {
-          allGallery.forEach((gallery, index) => {
-            allGallery[index].photos = allPhoto.filter((photo) => photo.gallery._id === gallery._id);
-          });
+        .then(({ data: { allGallery } }) => {
           setGalleries(allGallery);
         });
     }
