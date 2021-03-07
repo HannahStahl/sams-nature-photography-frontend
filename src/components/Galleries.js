@@ -10,7 +10,7 @@ const Galleries = ({ galleries }) => (
           className="photo"
         >
           <img
-            src={gallery.photos[0].image.asset.url}
+            src={gallery.previewPhoto.asset.url}
             alt={gallery.name}
             className="photo-img"
           />
