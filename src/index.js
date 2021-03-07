@@ -8,6 +8,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import About from './components/About';
 import Galleries from './components/Galleries';
+import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
 import NavBar from './components/NavBar';
@@ -19,6 +20,7 @@ const Routes = ({ galleries }) => (
     <Route path="/" exact render={() => <Galleries galleries={galleries} />} />
     <Route path="/about" exact component={About} />
     <Route path="/photos" exact render={() => <Galleries galleries={galleries} />} />
+    <Route path="/photos/:galleryId" exact render={(props) => <Gallery {...props} galleries={galleries} />} />
     <Route path="/contact" exact component={Contact} />
     <Route component={NotFound} />
   </Switch>

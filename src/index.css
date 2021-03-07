@@ -65,6 +65,11 @@ code {
   color: white;
 }
 
+.photo:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .photo-img {
   position: absolute;
   top: 0;

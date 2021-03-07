@@ -5,7 +5,8 @@ const Galleries = ({ galleries }) => (
     <h1>Photo Galleries</h1>
     <div className="photos">
       {galleries.map((gallery) => (
-        <div
+        <a
+          href={`/photos/${gallery._id}`}
           key={gallery._id}
           className="photo"
         >
@@ -15,7 +16,7 @@ const Galleries = ({ galleries }) => (
             className="photo-img"
           />
           <h3>{gallery.name}</h3>
-        </div>
+        </a>
       ))}
     </div>
   </div>
