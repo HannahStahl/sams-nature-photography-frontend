@@ -21,7 +21,6 @@ const Gallery = ({ match: { params: { galleryId } } }) => {
               alt={photo.title}
               className="photo-img"
             />
-            <h4>{photo.title}</h4>
           </div>
         ))}
       </div>
