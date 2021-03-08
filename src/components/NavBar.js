@@ -4,14 +4,9 @@ import Nav from 'react-bootstrap/Nav';
 
 const NavBar = () => (
   <Navbar collapseOnSelect expand="lg">
-    <Navbar.Brand href="/">
-      <img
-        alt="Home"
-        src="/favicon.ico"
-        width="30"
-        height="30"
-        className="d-inline-block align-top"
-      />
+    <Navbar.Brand href="/photos">
+      <h4>Sam Johnson</h4>
+      <p>Nature Photography</p>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">

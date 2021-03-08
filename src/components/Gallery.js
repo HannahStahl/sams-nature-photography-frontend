@@ -9,7 +9,7 @@ const Gallery = ({ match: { params: { galleryId } } }) => {
   if (!gallery) return <Redirect to="/page-not-found" />
   return (
     <div>
-      <h1>{gallery.name}</h1>
+      <h2>{gallery.name}</h2>
       <div className="photos">
         {gallery.photos.map((photo) => (
           <div
@@ -21,7 +21,7 @@ const Gallery = ({ match: { params: { galleryId } } }) => {
               alt={photo.title}
               className="photo-img"
             />
-            <h3>{photo.title}</h3>
+            <h4>{photo.title}</h4>
           </div>
         ))}
       </div>

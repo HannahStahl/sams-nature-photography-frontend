@@ -5,7 +5,6 @@ const Galleries = () => {
   const { galleries } = useContext(Context);
   return (
     <div>
-      <h1>Galleries</h1>
       <div className="photos">
         {galleries.map((gallery) => (
           <a
@@ -18,7 +17,7 @@ const Galleries = () => {
               alt={gallery.name}
               className="photo-img"
             />
-            <h3>{gallery.name}</h3>
+            <h4>{gallery.name}</h4>
           </a>
         ))}
       </div>
