@@ -15,7 +15,7 @@ const Galleries = () => {
             <img
               src={gallery.previewPhoto.asset.url}
               alt={gallery.name}
-              className="photo-img"
+              className="photo-img gallery-img"
             />
             <h4>{gallery.name}</h4>
           </a>

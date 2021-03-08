@@ -44,8 +44,8 @@ const Contact = () => {
   };
 
   return (
-    <div>
-      <h1>Contact</h1>
+    <div className="contact-form">
+      <h2>Get in touch</h2>
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="name">
           <FormControl
@@ -76,7 +76,7 @@ const Contact = () => {
           block
           type="submit"
           size="lg"
-          variant="outline-dark"
+          variant="outline-light"
           disabled={!validateForm()}
         >
           {buttonText}
