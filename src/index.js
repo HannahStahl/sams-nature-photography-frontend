@@ -6,6 +6,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import Home from './components/Home';
 import About from './components/About';
 import Galleries from './components/Galleries';
 import Gallery from './components/Gallery';
@@ -15,12 +16,14 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import config from './config';
 
-const Routes = ({ galleries }) => (
+export const Context = React.createContext({ galleries: [] });
+
+const Routes = () => (
   <Switch>
-    <Route path="/" exact render={() => <Galleries galleries={galleries} />} />
+    <Route path="/" exact component={Home} />
     <Route path="/about" exact component={About} />
-    <Route path="/photos" exact render={() => <Galleries galleries={galleries} />} />
-    <Route path="/photos/:galleryId" exact render={(props) => <Gallery {...props} galleries={galleries} />} />
+    <Route path="/photos" exact component={Galleries} />
+    <Route path="/photos/:galleryId" exact component={Gallery} />
     <Route path="/contact" exact component={Contact} />
     <Route component={NotFound} />
   </Switch>
@@ -67,13 +70,11 @@ const App = withRouter(() => {
   }, [galleries]);
 
   return (
-    <>
+    <Context.Provider value={{ galleries }}>
       <NavBar />
-      <div className="page-content">
-        <Routes galleries={galleries} />
-      </div>
+      <div className="page-content"><Routes /></div>
       <Footer />
-    </>
+    </Context.Provider>
   );
 });
 
