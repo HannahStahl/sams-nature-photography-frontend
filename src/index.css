@@ -28,16 +28,13 @@ h1, h2, h3, h4 {
 }
 
 a,
-a:hover,
 .navbar-light .navbar-brand,
-.navbar-light .navbar-brand:hover,
 .navbar-light .navbar-nav .nav-link,
 .navbar-light .navbar-nav .active>.nav-link,
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show>.nav-link,
-.navbar-light .navbar-nav .nav-link:focus,
-.navbar-light .navbar-nav .nav-link:hover {
+.navbar-light .navbar-nav .nav-link:focus {
   color: white;
 }
 
@@ -114,11 +111,6 @@ code {
   padding: 1rem;
 }
 
-.photo:hover {
-  text-decoration: none;
-  color: white;
-}
-
 .photo-img {
   position: absolute;
   top: 0;
@@ -130,7 +122,7 @@ code {
 }
 
 .gallery-img {
-  filter: brightness(0.4);
+  filter: brightness(0.6);
 }
 
 .bio, .contact-form {
@@ -141,6 +133,28 @@ code {
 
 .bio {
   text-align: left;
+}
+
+.modal-dialog {
+  max-width: none;
+  max-height: none;
+}
+
+.modal-content,
+.modal-dialog img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+}
+
+.modal-dialog img {
+  border: solid 2px white;
+}
+
+.enlarged-photo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-group,
@@ -178,4 +192,18 @@ code {
 
 .footer a {
   text-decoration: underline;
+}
+
+@media (hover: hover) {
+  a:hover,
+  .navbar-light .navbar-brand:hover,
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: white;
+  }
+
+  .photo:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+  }
 }
