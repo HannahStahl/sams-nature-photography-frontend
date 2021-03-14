@@ -121,10 +121,20 @@ code {
   filter: brightness(0.6);
 }
 
-.bio, .contact-form {
+.about, .contact-form {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.img-placeholder {
+  width: 300px;
+  height: 390px;
+  background-color: rgb(50, 50, 50);
+  border: solid 1px white;
+  float: left;
+  margin-right: 40px;
+  margin-bottom: 20px;
 }
 
 .bio {
@@ -153,6 +163,10 @@ code {
   align-items: center;
 }
 
+.form-group {
+  margin-bottom: 20px;
+}
+
 .form-group,
 .form-group input,
 .form-group textarea,
@@ -169,7 +183,7 @@ code {
 
 .contact-form form button {
   text-transform: uppercase;
-  margin-top: 2rem;
+  margin-top: 30px;
 }
 
 .footer {
@@ -186,8 +200,15 @@ code {
   margin-bottom: 0px;
 }
 
-.footer a {
-  text-decoration: underline;
+@media only screen and (max-width: 600px) {
+  .img-placeholder {
+    width: 100%;
+    height: 390px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-right: 0px;
+    margin-bottom: 30px;
+  }
 }
 
 @media (hover: hover) {
@@ -201,5 +222,9 @@ code {
     cursor: pointer;
     text-decoration: none;
     color: white;
+  }
+
+  .footer a:hover {
+    text-decoration: none;
   }
 }
