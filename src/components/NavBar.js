@@ -18,6 +18,12 @@ const NavBar = () => {
           <Nav.Link href="/photos">Photos</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
           <Nav.Link href="/contact">Contact</Nav.Link>
+          <Nav.Link href="https://www.instagram.com/samiamphotography/" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-instagram" />
+          </Nav.Link>
+          <Nav.Link href="https://www.flickr.com/photos/134786614@N08/albums" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-flickr" />
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

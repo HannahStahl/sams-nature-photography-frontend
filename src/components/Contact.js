@@ -45,7 +45,6 @@ const Contact = () => {
 
   return (
     <div className="contact-form">
-      <h2>Get in touch</h2>
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="name">
           <FormControl
