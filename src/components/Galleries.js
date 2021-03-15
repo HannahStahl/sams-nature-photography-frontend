@@ -8,7 +8,7 @@ const Galleries = () => {
       <div className="photos">
         {galleries.map((gallery) => (
           <a
-            href={`/photos/${gallery._id}`}
+            href={`/photos/${gallery.slug.current}`}
             key={gallery._id}
             className="photo"
           >

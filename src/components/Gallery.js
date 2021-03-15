@@ -4,14 +4,14 @@ import { Redirect } from 'react-router-dom';
 import { Context } from '..';
 import EnlargedPhoto from './EnlargedPhoto';
 
-const Gallery = ({ match: { params: { galleryId } } }) => {
+const Gallery = ({ match: { params: { gallerySlug } } }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
   const { galleries } = useContext(Context);
   if (galleries.length === 0) return <></>;
 
-  const gallery = galleries.find(({ _id }) => _id === galleryId);
+  const gallery = galleries.find(({ slug: { current } }) => current === gallerySlug);
   if (!gallery) return <Redirect to="/page-not-found" />
 
   const mobile = window.innerWidth < 500 || window.innerHeight < 500;

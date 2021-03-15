@@ -23,7 +23,7 @@ const Routes = () => (
     <Route path="/" exact component={Home} />
     <Route path="/about" exact component={About} />
     <Route path="/photos" exact component={Galleries} />
-    <Route path="/photos/:galleryId" exact component={Gallery} />
+    <Route path="/photos/:gallerySlug" exact component={Gallery} />
     <Route path="/contact" exact component={Contact} />
     <Route component={NotFound} />
   </Switch>
@@ -38,6 +38,9 @@ const App = withRouter(() => {
         query {
           allGallery(sort: { name: ASC }) {
             _id
+            slug {
+              current
+            }
             name
             previewPhoto {
               asset {
