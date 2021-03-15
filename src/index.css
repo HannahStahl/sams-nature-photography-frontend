@@ -167,6 +167,27 @@ code {
   align-items: center;
 }
 
+.photo-details {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(30, 30, 30, 0.7);
+  padding: 20px;
+  border-left: solid 2px white;
+  border-bottom: solid 2px white;
+  border-right: solid 2px white;
+}
+
+.photo-details h4,
+.photo-details p {
+  margin-bottom: 0;
+}
+
+.photo-details p {
+  margin-top: 10px;
+}
+
 .previous,
 .next,
 .exit {
@@ -258,6 +279,10 @@ code {
   .next:hover,
   .exit:hover {
     cursor: pointer;
+  }
+
+  .modal-content:hover .photo-details {
+    display: block;
   }
 
   .footer a:hover {

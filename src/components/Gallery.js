@@ -17,17 +17,17 @@ const Gallery = ({ match: { params: { gallerySlug } } }) => {
   const mobile = window.innerWidth < 500 || window.innerHeight < 500;
 
   const selectedPhoto = gallery.photos[index];
-  const { title, image: { asset: { url } } } = selectedPhoto;
+  const { title, description, image: { asset: { url } } } = selectedPhoto;
   const image = new Image();
   image.src = url;
   const imageWidthToHeightRatio = image.naturalWidth / image.naturalHeight;
   const windowWidthToHeightRatio = window.innerWidth / window.innerHeight;
   let width, height;
   if (imageWidthToHeightRatio > windowWidthToHeightRatio) {
-    width = window.innerWidth - 50;
+    width = window.innerWidth - 100;
     height = width / imageWidthToHeightRatio;
   } else {
-    height = window.innerHeight - 50;
+    height = window.innerHeight - 100;
     width = height * imageWidthToHeightRatio;
   }
 
@@ -63,6 +63,10 @@ const Gallery = ({ match: { params: { gallerySlug } } }) => {
             onHide={() => setModalOpen(false)}
           >
             <img className="enlarged-photo" src={url} alt={title} />
+            <div className="photo-details">
+              <h4>{title}</h4>
+              {description && <p>{description}</p>}
+            </div>
             {index > 0 && (
               <img src='/previous.png' alt="Previous" className="previous" onClick={() => setIndex(index - 1)} />
             )}
