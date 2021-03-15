@@ -54,15 +54,24 @@ const Gallery = ({ match: { params: { galleryId } } }) => {
       </div>
 
       {!mobile && (
-        <Modal
-          centered
-          animation={false}
-          dialogAs={(props) => <EnlargedPhoto style={{ width, height }} {...props} />}
-          show={modalOpen}
-          onHide={() => setModalOpen(false)}
-        >
-          <img src={url} alt={title} />
-        </Modal>
+        <>
+          <Modal
+            centered
+            animation={false}
+            dialogAs={(props) => <EnlargedPhoto style={{ width, height }} {...props} />}
+            show={modalOpen}
+            onHide={() => setModalOpen(false)}
+          >
+            <img className="enlarged-photo" src={url} alt={title} />
+            {index > 0 && (
+              <img src='/previous.png' alt="Previous" className="previous" onClick={() => setIndex(index - 1)} />
+            )}
+            {index < gallery.photos.length - 1 && (
+              <img src='/next.png' alt="Next" className="next" onClick={() => setIndex(index + 1)} />
+            )}
+            <img src='/exit.png' alt="Close" className="exit" onClick={() => setModalOpen(false)} />
+          </Modal>
+        </>
       )}
     </div>
   );
