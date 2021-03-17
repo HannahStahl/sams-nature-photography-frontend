@@ -44,8 +44,8 @@ a,
 }
 
 .navbar-light {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: calc(5% - 1rem);
+  margin-right: calc(5% - 1rem);
 }
 
 .navbar-light .navbar-brand {
@@ -65,6 +65,21 @@ a,
   padding-top: 0px;
 }
 
+.navbar-toggler.collapsed {
+  border-color: white;
+  border-radius: 0;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  border: solid 1px white;
+  border-radius: 0;
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,<svg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'><path stroke='rgb(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -80,6 +95,10 @@ code {
   content: "";
   display: block;
   height: 80px;
+}
+
+.page-content h2 {
+  margin-bottom: 2rem;
 }
 
 .photos {
