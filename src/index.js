@@ -33,6 +33,10 @@ const App = withRouter(() => {
   const [galleries, setGalleries] = useState([]);
 
   useEffect(() => {
+    document.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+    });
+
     if (galleries.length === 0) {
       const query = `
         query {
