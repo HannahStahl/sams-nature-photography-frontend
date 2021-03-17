@@ -62,10 +62,12 @@ const Gallery = ({ match: { params: { gallerySlug } } }) => {
             show={modalOpen}
             onHide={() => setModalOpen(false)}
           >
-            <img className="enlarged-photo" src={url} alt={title} />
-            <div className="photo-details">
-              <h4>{title}</h4>
-              {description && <p>{description}</p>}
+            <div className="enlarged-photo-with-details">
+              <img className="enlarged-photo" src={url} alt={title} />
+              <div className="photo-details">
+                <h4>{title}</h4>
+                {description && <p>{description}</p>}
+              </div>
             </div>
             {index > 0 && (
               <img src='/previous.png' alt="Previous" className="previous" onClick={() => setIndex(index - 1)} />
