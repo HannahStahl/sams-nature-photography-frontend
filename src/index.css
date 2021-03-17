@@ -189,7 +189,6 @@ code {
 }
 
 .photo-details {
-  display: none;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -301,6 +300,10 @@ code {
   .next:hover,
   .exit:hover {
     cursor: pointer;
+  }
+
+  .photo-details {
+    display: none;
   }
 
   .enlarged-photo-with-details:hover .photo-details {
