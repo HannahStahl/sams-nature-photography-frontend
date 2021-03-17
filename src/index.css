@@ -87,7 +87,7 @@ code {
 
 .page-content {
   padding: 5%;
-  min-height: calc(100% - 56px);
+  min-height: calc(100% - 120px);
   margin-bottom: -80px;
 }
 
