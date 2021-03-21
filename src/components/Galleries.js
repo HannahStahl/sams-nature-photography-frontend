@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Context } from '..';
 
 const Galleries = () => {
@@ -7,8 +8,8 @@ const Galleries = () => {
     <div>
       <div className="photos">
         {galleries.map((gallery) => (
-          <a
-            href={`/photos/${gallery.slug.current}`}
+          <NavLink
+            to={`/photos/${gallery.slug.current}`}
             key={gallery._id}
             className="photo"
           >
@@ -18,7 +19,7 @@ const Galleries = () => {
               className="photo-img gallery-img"
             />
             <h4>{gallery.name}</h4>
-          </a>
+          </NavLink>
         ))}
       </div>
     </div>

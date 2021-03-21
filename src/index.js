@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {
   BrowserRouter, withRouter, Route, Switch,
 } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
@@ -18,18 +19,38 @@ import config from './config';
 
 export const Context = React.createContext({ galleries: [] });
 
-const Routes = () => (
-  <Switch>
-    <Route path="/" exact component={Home} />
-    <Route path="/about" exact component={About} />
-    <Route path="/photos" exact component={Galleries} />
-    <Route path="/photos/:gallerySlug" exact component={Gallery} />
-    <Route path="/contact" exact component={Contact} />
-    <Route component={NotFound} />
-  </Switch>
-);
+const Routes = () => {
+  const routes = [
+    { path: "/", Component: Home },
+    { path: "/about", Component: About },
+    { path: "/photos", Component: Galleries },
+    { path: "/photos/:gallerySlug", Component: Gallery },
+    { path: "/contact", Component: Contact },
+  ];
+  return (
+    <Switch>
+      {routes.map(({ path, Component, props }) => (
+        <Route key={path} exact path={path}>
+          {({ match }) => (
+            <CSSTransition
+              in={match !== null}
+              timeout={300}
+              classNames="page"
+              unmountOnExit
+            >
+              <div className="page">
+                <Component {...props} match={match} />
+              </div>
+            </CSSTransition>
+          )}
+        </Route>
+      ))}
+      <Route component={NotFound} />
+    </Switch>
+  );
+};
 
-const App = withRouter(() => {
+const App = withRouter(({ location }) => {
   const [galleries, setGalleries] = useState([]);
 
   useEffect(() => {
@@ -81,6 +102,10 @@ const App = withRouter(() => {
       });
     };
   }, [galleries]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [location]);
 
   return (
     <Context.Provider value={{ galleries }}>

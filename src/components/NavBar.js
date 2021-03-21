@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
   let activeKey = window.location.pathname;
@@ -8,16 +9,16 @@ const NavBar = () => {
 
   return (
     <Navbar collapseOnSelect expand="lg">
-      <Navbar.Brand href="/photos">
+      <Navbar.Brand as={NavLink} to="/photos">
         <h4>Sam Johnson</h4>
         <p>Nature Photography</p>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto" activeKey={activeKey}>
-          <Nav.Link href="/photos">Photos</Nav.Link>
-          <Nav.Link href="/about">About</Nav.Link>
-          <Nav.Link href="/contact">Contact</Nav.Link>
+          <Nav.Link as={NavLink} to="/photos">Photos</Nav.Link>
+          <Nav.Link as={NavLink} to="/about">About</Nav.Link>
+          <Nav.Link as={NavLink} to="/contact">Contact</Nav.Link>
           <Nav.Link href="https://www.instagram.com/samiamphotography/" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-instagram" />
           </Nav.Link>
