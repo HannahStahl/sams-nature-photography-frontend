@@ -17,5 +17,6 @@ export default {
   // Add common config values here
   apiURL: 'https://8c1de13p.apicdn.sanity.io/v1/graphql/production/default',
   businessName: "Sam's Nature Photography",
+  publicCloudfrontURL: 'https://d17jmxltsx3ffm.cloudfront.net',
   ...config,
 };
