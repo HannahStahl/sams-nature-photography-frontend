@@ -146,6 +146,10 @@ code {
   margin-right: auto;
 }
 
+.contact-form-intro {
+  margin-bottom: 2rem;
+}
+
 .img-placeholder {
   width: 300px;
   height: 390px;

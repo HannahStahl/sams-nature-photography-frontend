@@ -45,6 +45,9 @@ const Contact = () => {
 
   return (
     <div className="contact-form">
+      <p className="contact-form-intro">
+        If you're interested in trying to get a print or use/publish my photos in any way, please send me a message.
+      </p>
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="name">
           <FormControl
