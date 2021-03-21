@@ -74,6 +74,12 @@ const App = withRouter(() => {
           setGalleries(allGallery);
         });
     }
+
+    return () => {
+      document.removeEventListener("contextmenu", (e) => {
+        e.preventDefault();
+      });
+    };
   }, [galleries]);
 
   return (

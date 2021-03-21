@@ -4,7 +4,7 @@ import config from '../config';
 
 const About = () => (
   <div className="about">
-    <img className="about-photo" src={`${config.publicCloudfrontURL}/sam-johnson.jpg`} />
+    <img className="about-photo" src={`${config.publicCloudfrontURL}/sam-johnson.jpg`} alt="Sam Johnson" />
     <div className="bio">
       {content.bio.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
     </div>

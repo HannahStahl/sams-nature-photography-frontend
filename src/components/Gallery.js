@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import { Context } from '..';
@@ -8,11 +8,28 @@ const Gallery = ({ match: { params: { gallerySlug } } }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
+  let gallery;
+
+  const handleKeyDown = useCallback((e) => {
+    if (modalOpen) {
+      if (e.keyCode === 37) {
+        if (index > 0) setIndex(index - 1);
+      } else if (e.keyCode === 39) {
+        if (index < gallery.photos.length - 1) setIndex(index + 1);
+      }
+    }
+  }, [modalOpen, index, gallery]);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
+
   const { galleries } = useContext(Context);
   if (galleries.length === 0) return <></>;
 
-  const gallery = galleries.find(({ slug: { current } }) => current === gallerySlug);
-  if (!gallery) return <Redirect to="/page-not-found" />
+  gallery = galleries.find(({ slug: { current } }) => current === gallerySlug);
+  if (!gallery) return <Redirect to="/page-not-found" />;
 
   const mobile = window.innerWidth < 500 || window.innerHeight < 500;
 
