@@ -202,8 +202,22 @@ code {
   100% { opacity: 1; }
 }
 
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 .enlarged-photo-with-details {
   animation: fadeIn .3s;
+}
+
+.fade-out {
+  animation: fadeOut .3s;
+  opacity: 0;
+}
+
+.modal-content {
+  background-color: transparent;
 }
 
 .modal-content,
