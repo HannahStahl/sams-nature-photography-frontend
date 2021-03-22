@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter, withRouter, Route, Switch,
-} from 'react-router-dom';
+import { BrowserRouter, withRouter, Route } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
@@ -12,7 +10,6 @@ import About from './components/About';
 import Galleries from './components/Galleries';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
-import NotFound from './components/NotFound';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import config from './config';
@@ -28,7 +25,7 @@ const Routes = () => {
     { path: "/contact", Component: Contact },
   ];
   return (
-    <Switch>
+    <>
       {routes.map(({ path, Component, props }) => (
         <Route key={path} exact path={path}>
           {({ match }) => (
@@ -45,8 +42,7 @@ const Routes = () => {
           )}
         </Route>
       ))}
-      <Route component={NotFound} />
-    </Switch>
+    </>
   );
 };
 
