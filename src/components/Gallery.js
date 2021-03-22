@@ -41,10 +41,10 @@ const Gallery = ({ match: { params: { gallerySlug } } }) => {
   const windowWidthToHeightRatio = window.innerWidth / window.innerHeight;
   let width, height;
   if (imageWidthToHeightRatio > windowWidthToHeightRatio) {
-    width = window.innerWidth - 150;
+    width = window.innerWidth - 85;
     height = width / imageWidthToHeightRatio;
   } else {
-    height = window.innerHeight - 150;
+    height = window.innerHeight - 85;
     width = height * imageWidthToHeightRatio;
   }
 

@@ -242,8 +242,8 @@ code {
 .next,
 .exit {
   position: fixed;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .previous,
@@ -252,16 +252,16 @@ code {
 }
 
 .previous {
-  left: 30px;
+  left: 15px;
 }
 
 .next {
-  right: 30px;
+  right: 15px;
 }
 
 .exit {
-  top: 30px;
-  right: 30px;
+  top: 15px;
+  right: 15px;
 }
 
 .form-group {
