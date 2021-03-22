@@ -55,8 +55,8 @@ const Gallery = ({ match: { params: { gallerySlug } } }) => {
     const exitIcon = document.getElementById("exit");
     const modalBackdrop = document.getElementsByClassName("modal-backdrop")[0];
     enlargedPhoto.classList.add('fade-out');
-    leftArrow.classList.add('fade-out');
-    rightArrow.classList.add('fade-out');
+    if (leftArrow) leftArrow.classList.add('fade-out');
+    if (rightArrow) rightArrow.classList.add('fade-out');
     exitIcon.classList.add('fade-out');
     modalBackdrop.classList.add('fade-out');
     setTimeout(() => setModalOpen(false), 250);
