@@ -16,13 +16,13 @@ const NavBar = () => {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto" activeKey={activeKey}>
-          <Nav.Link as={NavLink} to="/photos">Photos</Nav.Link>
-          <Nav.Link as={NavLink} to="/about">About</Nav.Link>
-          <Nav.Link as={NavLink} to="/contact">Contact</Nav.Link>
-          <Nav.Link href="https://www.instagram.com/samiamphotography/" target="_blank" rel="noopener noreferrer">
+          <Nav.Link as={NavLink} to="/photos" eventKey="1">Photos</Nav.Link>
+          <Nav.Link as={NavLink} to="/about" eventKey="2">About</Nav.Link>
+          <Nav.Link as={NavLink} to="/contact" eventKey="3">Contact</Nav.Link>
+          <Nav.Link href="https://www.instagram.com/samiamphotography/" target="_blank" rel="noopener noreferrer" eventKey="4">
             <i className="fab fa-instagram" />
           </Nav.Link>
-          <Nav.Link href="https://www.flickr.com/photos/134786614@N08/albums" target="_blank" rel="noopener noreferrer">
+          <Nav.Link href="https://www.flickr.com/photos/134786614@N08/albums" target="_blank" rel="noopener noreferrer" eventKey="5">
             <i className="fab fa-flickr" />
           </Nav.Link>
         </Nav>
