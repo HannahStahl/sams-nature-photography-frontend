@@ -105,6 +105,7 @@ const App = withRouter(({ location }) => {
 
   return (
     <Context.Provider value={{ galleries }}>
+      <div className="background-overlay" />
       <NavBar />
       <div className="page-content"><Routes /></div>
       <Footer />
