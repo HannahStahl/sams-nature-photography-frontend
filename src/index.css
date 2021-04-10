@@ -253,7 +253,7 @@ code {
 }
 
 .photo-details {
-  transition: opacity .3s ease-in-out;
+  opacity: 0;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -263,15 +263,30 @@ code {
   border-left: solid 2px white;
   border-right: solid 2px white;
   border-bottom: solid 2px white;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.photo-details.visible {
+  opacity: 1;
 }
 
 .photo-details h4,
 .photo-details p {
   margin-bottom: 0;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 .photo-details p {
   margin-top: 10px;
+}
+
+.photo-details-icon {
+  position: absolute;
+  bottom: .75rem;
+  right: .75rem;
+  font-size: 2rem;
 }
 
 .previous,
@@ -360,18 +375,14 @@ code {
     color: white;
   }
 
+  .photo-details-icon:hover {
+    cursor: pointer;
+  }
+
   .previous:hover,
   .next:hover,
   .exit:hover {
     cursor: pointer;
-  }
-
-  .photo-details {
-    opacity: 0;
-  }
-
-  .enlarged-photo-with-details:hover .photo-details {
-    opacity: 1;
   }
 
   .footer a:hover {
