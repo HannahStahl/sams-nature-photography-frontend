@@ -254,6 +254,7 @@ code {
 
 .photo-details {
   opacity: 0;
+  transition: opacity .3s ease-in-out;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -375,8 +376,16 @@ code {
     color: white;
   }
 
-  .photo-details-icon:hover {
-    cursor: pointer;
+  .photo-details {
+    opacity: 0;
+  }
+
+  .enlarged-photo-with-details:hover .photo-details {
+    opacity: 1;
+  }
+
+  .photo-details-icon {
+    display: none;
   }
 
   .previous:hover,
