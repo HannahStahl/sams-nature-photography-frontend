@@ -92,12 +92,12 @@ const Gallery = ({ match }) => {
           <i className="photo-details-icon fas fa-info-circle" onClick={() => setPhotoDetailsVisible(!photoDetailsVisible)} />
         </div>
         {index > 0 && (
-          <img src='/previous.png' alt="Previous" className="previous" onClick={() => setIndex(index - 1)} />
+          <img src="/previous.png" alt="Previous" className="previous" onClick={() => setIndex(index - 1)} />
         )}
         {index < gallery.photos.length - 1 && (
-          <img src='/next.png' alt="Next" className="next" onClick={() => setIndex(index + 1)} />
+          <img src="/next.png" alt="Next" className="next" onClick={() => setIndex(index + 1)} />
         )}
-        <img src='/exit.png' alt="Close" className="exit" onClick={() => setModalOpen(false)} />
+        <img src="/exit.png" alt="Close" className="exit" onClick={() => setModalOpen(false)} />
       </Modal>
     </div>
   );
