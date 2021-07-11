@@ -1,7 +1,9 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, {
+  useCallback, useContext, useEffect, useState,
+} from 'react';
 import { Modal } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
-import { Context } from '..';
+import Context from './Context';
 import EnlargedPhoto from './EnlargedPhoto';
 
 const Gallery = ({ match }) => {
@@ -23,7 +25,7 @@ const Gallery = ({ match }) => {
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [handleKeyDown]);
 
   useEffect(() => {
@@ -43,7 +45,8 @@ const Gallery = ({ match }) => {
   image.src = url;
   const imageWidthToHeightRatio = image.naturalWidth / image.naturalHeight;
   const windowWidthToHeightRatio = window.innerWidth / window.innerHeight;
-  let width, height;
+  let width;
+  let height;
   if (imageWidthToHeightRatio > windowWidthToHeightRatio) {
     width = window.innerWidth - 85;
     height = width / imageWidthToHeightRatio;

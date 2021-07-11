@@ -5,6 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import Context from './components/Context';
 import Home from './components/Home';
 import About from './components/About';
 import Galleries from './components/Galleries';
@@ -14,15 +15,13 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import config from './config';
 
-export const Context = React.createContext({ galleries: [] });
-
 const Routes = () => {
   const routes = [
-    { path: "/", Component: Home },
-    { path: "/about", Component: About },
-    { path: "/photos", Component: Galleries },
-    { path: "/photos/:gallerySlug", Component: Gallery },
-    { path: "/contact", Component: Contact },
+    { path: '/', Component: Home },
+    { path: '/about', Component: About },
+    { path: '/photos', Component: Galleries },
+    { path: '/photos/:gallerySlug', Component: Gallery },
+    { path: '/contact', Component: Contact },
   ];
   return (
     <>
@@ -48,6 +47,7 @@ const Routes = () => {
 
 const App = withRouter(({ location }) => {
   const [galleries, setGalleries] = useState([]);
+  const [bio, setBio] = useState(undefined);
 
   useEffect(() => {
     document.addEventListener('contextmenu', (e) => {
@@ -78,22 +78,27 @@ const App = withRouter(({ location }) => {
               }
             }
           }
+          allAbout {
+            _id
+            bioRaw
+          }
         }
       `;
       const params = {
         method: 'POST',
-        headers: { "Content-Type": "application/json" },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query }),
       };
       fetch(config.apiURL, params)
         .then((res) => res.json())
-        .then(({ data: { allGallery } }) => {
+        .then(({ data: { allGallery, allAbout } }) => {
           setGalleries(allGallery);
+          setBio(allAbout[0].bioRaw);
         });
     }
 
     return () => {
-      document.removeEventListener("contextmenu", (e) => {
+      document.removeEventListener('contextmenu', (e) => {
         e.preventDefault();
       });
     };
@@ -104,7 +109,7 @@ const App = withRouter(({ location }) => {
   }, [location]);
 
   return (
-    <Context.Provider value={{ galleries }}>
+    <Context.Provider value={{ galleries, bio }}>
       <div className="background-overlay" />
       <NavBar />
       <div className="page-content"><Routes /></div>

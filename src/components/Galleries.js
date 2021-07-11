@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Context } from '..';
+import Context from './Context';
 
 const Galleries = () => {
   const { galleries } = useContext(Context);
